@@ -27,7 +27,7 @@ Scanner scanner = new Scanner(System.in);
         double onePlusI_n = Math.pow(1 + i, n);
         double monthlyPayment = principal * (i * onePlusI_n) / (onePlusI_n - 1);
 
-
+// INTEREST CALCULATION :
         double totalInterest = (monthlyPayment * n) - principal;
 
 // RESULTS :
