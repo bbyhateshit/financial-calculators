@@ -18,7 +18,26 @@ Scanner scanner = new Scanner(System.in);
         int years = scanner.nextInt();
 
         scanner.close();
+// CALCULATIONS :
+        double r = annualRatePercent / 100.0;
+        double i = r / 12.0;
+        int n = years * 12;
+
+// FORMULA : M = P * (i(1+i)^n) / ((1+i)^n - 1)
+        double onePlusI_n = Math.pow(1 + i, n);
+        double monthlyPayment = principal * (i * onePlusI_n) / (onePlusI_n - 1);
 
 
+        double totalInterest = (monthlyPayment * n) - principal;
+
+// RESULTS :
+
+        System.out.printf("Loan:   $%,.2f%n", principal);
+        System.out.printf("Annual Interest:   %.3f%%%n", annualRatePercent);
+        System.out.printf("Loan Term:   %d years (%d payments)%n", years, n);
+        System.out.printf("Monthly Payment:   $%,.2f%n", monthlyPayment);
+        System.out.printf("Total Interest:   $%,.2f%n", totalInterest);
     }
+
 }
+
